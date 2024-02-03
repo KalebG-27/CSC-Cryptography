@@ -1,0 +1,33 @@
+import math
+!pip3 install -U PyCryptodome
+import Crypto.Util.number
+
+
+def find_factor(n):
+    factor = [1]
+    while n % 2 == 0:
+        factor.append(2)
+        n/=2
+    f=3
+    while f <= math.sqrt(n):
+        if n % f == 0:
+            factor.append(f)
+            n /= f
+        else:
+            f += 2
+    print(factor)
+    return factor
+
+def rsaKey(n,e):
+    factors = find_factor(n)
+    p = len(factors) - 1
+    q = [len(factors) - 2
+    assert p*q == n, "not equal"
+
+if __name__ == '__main__':
+    n = 712446816787
+    e = 6551
+    rsaKey(n,e)
+
+
+
